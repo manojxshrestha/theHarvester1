@@ -133,22 +133,91 @@ Install and dependencies:
 * https://github.com/laramies/theHarvester/wiki/Installation
 
 
-Comments, bugs, and requests:
------------------------------
-* [![Twitter Follow](https://img.shields.io/twitter/follow/laramies.svg?style=social&label=Follow)](https://twitter.com/laramies) Christian Martorella @laramies
-  cmartorella@edge-security.com
-* [![Twitter Follow](https://img.shields.io/twitter/follow/NotoriousRebel1.svg?style=social&label=Follow)](https://twitter.com/NotoriousRebel1) Matthew Brown @NotoriousRebel1
-* [![Twitter Follow](https://img.shields.io/twitter/follow/jay_townsend1.svg?style=social&label=Follow)](https://twitter.com/jay_townsend1) Jay "L1ghtn1ng" Townsend @jay_townsend1
+# Installation:
+
+            $ sudo apt-get theharvester
+If it doesn’t work you can try to clone it directly from git using the following commands
+
+            $ git clone https://github.com/laramies/theHarvester.git
+            $ cd theHarvester
+            $ sudo pip3 install -r requirements.txt
+            $ sudo python3 ./theHarvester.py
+            
+# Upgrading:
+use the following command to upgrade the harvester
+
+            $ sudo apt-get upgrade theharvester
+
+# Usage:
+
+       $ theHarvester [-h] -d DOMAIN [-l LIMIT] [-S START] [-g] [-p] [-s] [--screenshot SCREENSHOT] [-v] [-e DNS_SERVER [-t DNS_TLD] [-r] [-n] [-c] [-f FILENAME] [-b SOURCE]
 
 
-Main contributors:
-------------------
-* [![Twitter Follow](https://img.shields.io/twitter/follow/NotoriousRebel1.svg?style=social&label=Follow)](https://twitter.com/NotoriousRebel1) Matthew Brown @NotoriousRebel1
-* [![Twitter Follow](https://img.shields.io/twitter/follow/jay_townsend1.svg?style=social&label=Follow)](https://twitter.com/jay_townsend1) Jay "L1ghtn1ng" Townsend @jay_townsend1
-* [![Twitter Follow](https://img.shields.io/twitter/follow/discoverscripts.svg?style=social&label=Follow)](https://twitter.com/discoverscripts) Lee Baird @discoverscripts
+# options:
 
+    -h, --help            show this help message and exit
+   
+   
+    -d DOMAIN, --domain DOMAIN [Company name or domain to search]
+               
+               
+    -l LIMIT, --limit LIMIT [Limit the number of search results, default=500]
+         
+         
+    -S START, --start START [Start with result number X, default=0]
+    
+    
+    -g, --google-dork [Use Google Dorks for Google search]
+   
+   
+    -p, --proxies [Use proxies for requests, enter proxies in proxies.yaml]
+   
+   
+    -s, --shodan [Use Shodan to query discovered hosts]
+   
+   
+    --screenshot SCREENSHOT [Take screenshots of resolved domains specify output directory: --screenshot output_directory]
+                
+                
+    -v, --virtual-host [Verify host name via DNS resolution and search for virtual hosts]
+                   
+                   
+    -e DNS_SERVER, --dns-server DNS_SERVER [DNS server to use for lookup]
+                      
+                      
+    -t DNS_TLD, --dns-tld DNS_TLD [Perform a DNS TLD expansion discovery, default False]
+                
+                
+    -r, --take-over [Check for takeovers]
+   
+   
+    -n, --dns-lookup [Enable DNS server lookup, default False]
+  
+  
+    -c, --dns-brute [Perform a DNS brute force on the domain]
+    
+    
+    -f FILENAME, --filename FILENAME [Save the results to an XML and JSON file]
+                       
+                       
+    -b SOURCE, --source SOURCE [anubis, baidu, bing, binaryedge, bingapi, bufferoverun, censys, certspotter, zoomeye
+                               crtsh, dnsdumpster, duckduckgo, fullhunt, github-code, google, hackertarget, hunter,                                    
+                               intelx, linkedin, linkedin_links, n45ht, omnisint, otx, pentesttools, projectdiscovery,                                
+                               qwant, rapiddns, rocketreach, securityTrails, spyse, sublist3r, threatcrowd, yahoo, 
+                               threatminer, trello, twitter, urlscan, virustotal]
+                               
+     
 
-Thanks:
--------
-* John Matherly - Shodan project
-* Ahmed Aboul Ela - subdomain names dictionaries (big and small)
+    -h: Use SHODAN database to query discovered hosts.
+
+# Examples
+To list available options
+        
+        
+     To search emails : $ theHarvester.py -d abc.com -b all
+        
+     To search emails with a limit : $ theHarvester.py -d abc.com -b all -l 200
+        
+     To save the result into an html file : $ theharvester -d abc.com -b all -h myresults.html
+        
+     To search in PGP(Pretty Good Privacy) only : $ theharvester -d abc.com -b pgp     
